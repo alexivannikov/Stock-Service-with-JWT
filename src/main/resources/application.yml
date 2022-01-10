@@ -1,0 +1,19 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/account
+    username: postgres
+    password: 123
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+  liquibase:
+    change-log: classpath:changelog/db.changelog-master.xml
+
+security:
+  jwt:
+    expiration: 600
+    secret: ZnAyM20wNnM5Mw==
