@@ -26,8 +26,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="887a25e2-5f59-4e76-a468-51fe1d211b5e">
-        <schema name="public" object-types="table, view, sequence, function" />
-        <schema name="stockdata" object-types="table, view" />
+        <schema name="stockdata" object-types="table" />
       </connection>
     </loaded-nodes>
   </component>
@@ -37,9 +36,7 @@
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="887a25e2-5f59-4e76-a468-51fe1d211b5e" object-ref="consoles/Connection" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="887a25e2-5f59-4e76-a468-51fe1d211b5e" />

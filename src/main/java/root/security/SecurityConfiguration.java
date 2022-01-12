@@ -31,13 +31,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception{
         http
                 .csrf().disable()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and()
-                .authorizeRequests()
-                .antMatchers("/auth/*").anonymous()
-                .antMatchers("/stock-data/real-time").permitAll()
-                .antMatchers("/stock-data/real-time").hasRole("PRO")
-                .anyRequest().authenticated();
+                .authorizeRequests().antMatchers("/stock-data/real-time").hasAnyAuthority("BASE", "PRO")
+                .antMatchers("/stock-data/historical").hasAuthority("PRO")
+                .and().authorizeRequests().antMatchers("/auth/**").permitAll()
+                .and().authorizeRequests().anyRequest().authenticated()
+                .and().httpBasic()
+                .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
         http.addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
     }
